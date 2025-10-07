@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nursing & Midwifery Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        
+        .menu {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .btn-challenge {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-challenge:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+        
+        .btn-review {
+            background: #48bb78;
+            color: white;
+        }
+        
+        .btn-review:hover {
+            background: #38a169;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #718096;
+            color: white;
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+        
+        .btn-secondary:hover {
+            background: #4a5568;
+        }
+        
+        .quiz-container, .review-container {
+            display: none;
+        }
+        
+        .quiz-container.active, .review-container.active {
+            display: block;
+        }
+        
+        
+        .question-card {
+            background: #f7fafc;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .question-number {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .option {
+            padding: 15px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .option:hover {
+            border-color: #667eea;
+            background: #edf2f7;
+        }
+        
+        .option.selected {
+            border-color: #667eea;
+            background: #e6f3ff;
+        }
+        
+        .option.correct {
+            border-color: #48bb78;
+            background: #c6f6d5;
+        }
+        
+        .option.incorrect {
+            border-color: #f56565;
+            background: #fed7d7;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .progress {
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+        }
+        
+        .results {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .score {
+            font-size: 48px;
+            color: #667eea;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .review-card {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .answer-key {
+            margin-top: 15px;
+            padding: 15px;
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            border-radius: 5px;
+        }
+        
+        .answer-key strong {
+            color: #38b2ac;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏥 Nursing & Midwifery Quiz</h1>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;color:#334155">
+            <div id="profileInfo" style="font-size:14px"></div>
+            <div id="statsBar" style="font-size:14px">
+                <span>🏅 High score: <strong id="highScore">–</strong></span>
+                <span style="margin-left:12px">🧪 Attempts: <strong id="attemptsCount">–</strong></span>
+            </div>
+        </div>
+        
+        <div id="menuScreen" class="menu">
+            <button class="btn btn-challenge" onclick="startChallenge()">🏆 Challenge Mode</button>
+            <button class="btn btn-review" onclick="startReview()">📚 Review Mode</button>
+            
+        </div>
+        
+        <div id="quizScreen" class="quiz-container">
+            <div class="question-card">
+                <div class="question-number" id="qNumber"></div>
+                <div class="question-text" id="qText"></div>
+                <div class="options" id="options"></div>
+            </div>
+            
+            <div class="navigation">
+                <button class="btn btn-secondary" onclick="prevQuestion()">← Previous</button>
+                <div class="progress" id="liveScore" style="min-width:120px;text-align:left"></div>
+                <div class="progress" id="progress"></div>
+                <button class="btn btn-secondary" onclick="nextQuestion()" id="nextBtn">Next →</button>
+                <button class="btn btn-secondary" onclick="backToMenu()">🏠 Back to Menu</button>
+            </div>
+        </div>
+        
+        <div id="resultsScreen" class="results hidden">
+            <h2>🎉 Quiz Complete!</h2>
+            <div class="score" id="scoreDisplay"></div>
+            <p id="scoreMessage"></p>
+            <div style="margin-top:10px;color:#334155">
+                <span>🏅 Best so far: <strong id="highScoreResults">–</strong></span>
+                <span style="margin-left:12px">🧪 Attempts: <strong id="attemptsCountResults">–</strong></span>
+            </div>
+            <button class="btn btn-challenge" onclick="restartQuiz()" style="margin-top: 20px;">Try Again</button>
+            <button class="btn btn-review" onclick="showReviewFromResults()" style="margin-top: 20px;">Review Answers</button>
+        </div>
+        
+        <div id="reviewScreen" class="review-container">
+            <div id="reviewContent"></div>
+            <button class="btn btn-secondary" onclick="backToMenu()" style="margin-top: 20px;">← Back to Menu</button>
+        </div>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // Supabase client (set your credentials below or via localStorage keys 'supabaseUrl' and 'supabaseAnon')
+        const SUPABASE_URL = window.localStorage.getItem('supabaseUrl') || 'https://nxpwdvrmypilrocvfpre.supabase.co';
+        const SUPABASE_ANON_KEY = window.localStorage.getItem('supabaseAnon') || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54cHdkdnJteXBpbHJvY3ZmcHJlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk4NTIxNDEsImV4cCI6MjA3NTQyODE0MX0.I9m-z1TNZNtEjag2e5Zb_2z98NaZIhs7JF-Mls4cqIM';
+        const supabaseClient = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+
+        async function fetchLeaderboard() {
+            if (!supabaseClient) return;
+            try {
+                const { data, error } = await supabaseClient
+                    .from('quiz_attempts')
+                    .select('score,total')
+                    .order('score', { ascending: false })
+                    .limit(1);
+                if (error) throw error;
+                const { count, error: cntErr } = await supabaseClient
+                    .from('quiz_attempts')
+                    .select('id', { count: 'exact', head: true });
+                if (cntErr) throw cntErr;
+                document.getElementById('highScore').textContent = data && data[0] ? `${data[0].score}/${data[0].total}` : '0/0';
+                document.getElementById('attemptsCount').textContent = count ?? 0;
+            } catch (e) {
+                console.warn('Supabase leaderboard fetch failed:', e.message);
+            }
+        }
+
+        async function recordAttemptAndRefresh(score, total) {
+            if (!supabaseClient) return;
+            try {
+                // Insert attempt and update leaderboard; ask name if new top 10
+                const { data: rpcData, error: rpcErr } = await supabaseClient
+                    .rpc('record_attempt_and_get_leaderboard', { p_score: score, p_total: total });
+                if (rpcErr) throw rpcErr;
+                await updateTopbarFromLeaderboard();
+                // If this attempt reaches top 10 and has no name yet, prompt
+                await maybePromptName(score, total);
+            } catch (e) {
+                console.warn('Supabase record attempt failed:', e.message);
+            }
+        }
+
+        async function updateTopbarFromLeaderboard() {
+            try {
+                const { data, error } = await supabaseClient
+                    .from('quiz_top10')
+                    .select('score,total')
+                    .order('score', { ascending: false })
+                    .order('created_at', { ascending: true })
+                    .limit(1);
+                if (error) throw error;
+                const { count, error: cntErr } = await supabaseClient
+                    .from('quiz_attempts')
+                    .select('id', { count: 'exact', head: true });
+                if (cntErr) throw cntErr;
+                document.getElementById('highScore').textContent = data && data[0] ? `${data[0].score}/${data[0].total}` : '0/0';
+                document.getElementById('attemptsCount').textContent = count ?? 0;
+                document.getElementById('highScoreResults').textContent = document.getElementById('highScore').textContent;
+                document.getElementById('attemptsCountResults').textContent = document.getElementById('attemptsCount').textContent;
+            } catch {}
+        }
+
+        async function maybePromptName(score, total) {
+            try {
+                // Check if score qualifies for top 10
+                const { data: top, error } = await supabaseClient
+                    .from('quiz_top10')
+                    .select('id,score,total,name')
+                    .order('score', { ascending: false })
+                    .order('created_at', { ascending: true })
+                    .limit(10);
+                if (error) throw error;
+                const qualifies = top.length < 10 || score > top[top.length - 1].score;
+                if (!qualifies) return;
+                let name = prompt('New High Score! Enter your name (max 24 chars):') || '';
+                name = name.trim().slice(0, 24) || 'Anonymous';
+                // Insert, then trim to 10 by removing lowest extras
+                const { error: insErr } = await supabaseClient
+                    .from('quiz_top10')
+                    .insert({ name, score, total });
+                if (insErr) throw insErr;
+                await supabaseClient.rpc('trim_top10');
+                await updateTopbarFromLeaderboard();
+            } catch (e) {
+                console.warn('Name capture failed:', e.message);
+            }
+        }
+        let questions = [];
+
+        async function loadQuestions() {
+            try {
+                const res = await fetch('answer.json', { cache: 'no-store' });
+                if (!res.ok) return;
+                const data = await res.json();
+                if (!Array.isArray(data) || !data.length) return;
+                const letterToIndex = { a:0, b:1, c:2, d:3, e:4 };
+                questions = data.map(item => ({
+                    q: String(item.question || ''),
+                    opts: (item.options || []).slice(0,4).map(String),
+                    ans: letterToIndex[String(item.answer||'').toLowerCase()] ?? 0
+                })).filter(x => x.q && Array.isArray(x.opts) && x.opts.length === 4);
+            } catch {}
+        }
+
+        let currentQuestion = 0;
+        let userAnswers = {};
+        let mode = '';
+        let isLocked = false; // reflects lock state for the current question view
+        const lockedQuestions = {}; // questionIndex -> true when answered (immutable)
+
+        async function startChallenge() {
+            mode = 'challenge';
+            currentQuestion = 0;
+            userAnswers = {};
+            document.getElementById('menuScreen').style.display = 'none';
+            document.getElementById('quizScreen').classList.add('active');
+            if (!questions.length) { await loadQuestions(); }
+            showQuestion();
+        }
+
+        async function startReview() {
+            mode = 'review';
+            document.getElementById('menuScreen').style.display = 'none';
+            document.getElementById('reviewScreen').classList.add('active');
+            if (!questions.length) { await loadQuestions(); }
+            showReviewMode();
+        }
+
+        function showQuestion() {
+            const q = questions[currentQuestion] || { q: 'No questions loaded. Add a questions.json or use Import.', opts: ['a. —','b. —','c. —','d. —'], ans: 0 };
+            document.getElementById('qNumber').textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+            document.getElementById('qText').textContent = q.q;
+            document.getElementById('progress').textContent = `${currentQuestion + 1} / ${questions.length}`;
+            updateLiveScore();
+            
+            const optionsDiv = document.getElementById('options');
+            optionsDiv.innerHTML = '';
+            // Lock if this question was already answered previously
+            const prevAns = userAnswers[currentQuestion];
+            isLocked = !!lockedQuestions[currentQuestion];
+            
+            q.opts.forEach((opt, idx) => {
+                const div = document.createElement('div');
+                div.className = 'option';
+                div.textContent = opt;
+                if (prevAns === idx) {
+                    div.classList.add('selected');
+                }
+                div.onclick = () => selectOption(idx);
+                optionsDiv.appendChild(div);
+            });
+
+            // If locked, reveal correct/incorrect and disable pointer events
+            if (isLocked) {
+                const qNow = questions[currentQuestion];
+                const opts = document.querySelectorAll('.option');
+                opts.forEach((optEl, i) => {
+                    if (i === qNow.ans) optEl.classList.add('correct');
+                    else if (i === prevAns && prevAns !== qNow.ans) optEl.classList.add('incorrect');
+                    optEl.style.pointerEvents = 'none';
+                });
+            }
+
+            document.getElementById('nextBtn').textContent = 
+                currentQuestion === questions.length - 1 ? 'Finish' : 'Next →';
+        }
+
+        function selectOption(idx) {
+            if (isLocked) return;
+            isLocked = true;
+            userAnswers[currentQuestion] = idx;
+            lockedQuestions[currentQuestion] = true;
+            const q = questions[currentQuestion];
+            const options = document.querySelectorAll('.option');
+            options.forEach((opt, i) => {
+                opt.classList.toggle('selected', i === idx);
+                if (i === q.ans) opt.classList.add('correct');
+                else if (i === idx && idx !== q.ans) opt.classList.add('incorrect');
+                opt.style.pointerEvents = 'none';
+            });
+            updateLiveScore();
+            // Remain on this question until the user clicks Next
+        }
+
+        function updateLiveScore() {
+            try {
+                let correct = 0;
+                questions.forEach((q, i) => {
+                    if (userAnswers[i] === q.ans) correct++;
+                });
+                const el = document.getElementById('liveScore');
+                if (el) el.textContent = `Score: ${correct} / ${questions.length}`;
+            } catch {}
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        function showResults() {
+            if (!questions.length) {
+                alert('No questions loaded yet. Please add questions.json or import from images.');
+                backToMenu();
+                return;
+            }
+            let correct = 0;
+            questions.forEach((q, idx) => {
+                if (userAnswers[idx] === q.ans) correct++;
+            });
+
+            const percentage = (correct / questions.length * 100).toFixed(1);
+            
+            document.getElementById('quizScreen').classList.remove('active');
+            document.getElementById('resultsScreen').classList.remove('hidden');
+            document.getElementById('scoreDisplay').textContent = `${correct} / ${questions.length}`;
+            
+            let message = '';
+            if (percentage >= 90) message = '🌟 Excellent! Outstanding performance!';
+            else if (percentage >= 80) message = '👏 Great job! Well done!';
+            else if (percentage >= 70) message = '👍 Good work! Keep it up!';
+            else if (percentage >= 60) message = '📚 Not bad, but room for improvement.';
+            else message = '💪 Keep studying and try again!';
+            
+            document.getElementById('scoreMessage').textContent = message + ` (${percentage}%)`;
+            recordAttemptAndRefresh(correct, questions.length);
+        }
+
+        function showReviewMode() {
+            const reviewDiv = document.getElementById('reviewContent');
+            reviewDiv.innerHTML = '<h2 style="color: #48bb78; margin-bottom: 20px;">📖 Review All Questions</h2>';
+            
+            questions.forEach((q, idx) => {
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                
+                let html = `
+                    <div class="question-number">Question ${idx + 1}</div>
+                    <div class="question-text">${q.q}</div>
+                    <div class="options">
+                `;
+                
+                q.opts.forEach((opt, optIdx) => {
+                    const isCorrect = optIdx === q.ans;
+                    html += `<div class="option ${isCorrect ? 'correct' : ''}">${opt}</div>`;
+                });
+                
+                html += `</div>
+                    <div class="answer-key">
+                        <strong>✓ Correct Answer:</strong> ${q.opts[q.ans]}
+                    </div>
+                `;
+                
+                card.innerHTML = html;
+                reviewDiv.appendChild(card);
+            });
+        }
+
+        function showReviewFromResults() {
+            document.getElementById('resultsScreen').classList.add('hidden');
+            document.getElementById('reviewScreen').classList.add('active');
+            
+            const reviewDiv = document.getElementById('reviewContent');
+            reviewDiv.innerHTML = '<h2 style="color: #667eea; margin-bottom: 20px;">📊 Your Answer Review</h2>';
+            
+            questions.forEach((q, idx) => {
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                const userAns = userAnswers[idx];
+                const isCorrect = userAns === q.ans;
+                
+                let html = `
+                    <div class="question-number">Question ${idx + 1} ${isCorrect ? '✓' : '✗'}</div>
+                    <div class="question-text">${q.q}</div>
+                    <div class="options">
+                `;
+                
+                q.opts.forEach((opt, optIdx) => {
+                    let className = 'option';
+                    if (optIdx === q.ans) className += ' correct';
+                    else if (optIdx === userAns && !isCorrect) className += ' incorrect';
+                    
+                    html += `<div class="${className}">${opt}</div>`;
+                });
+                
+                html += `</div>
+                    <div class="answer-key">
+                        <strong>✓ Correct Answer:</strong> ${q.opts[q.ans]}<br>
+                        <strong>${isCorrect ? '✓ Your answer was correct!' : '✗ Your answer: ' + (userAns !== undefined ? q.opts[userAns] : 'Not answered')}</strong>
+                    </div>
+                `;
+                
+                card.innerHTML = html;
+                reviewDiv.appendChild(card);
+            });
+        }
+
+        function restartQuiz() {
+            document.getElementById('resultsScreen').classList.add('hidden');
+            currentQuestion = 0;
+            userAnswers = {};
+            document.getElementById('quizScreen').classList.add('active');
+            showQuestion();
+        }
+
+        function backToMenu() {
+            document.getElementById('reviewScreen').classList.remove('active');
+            document.getElementById('quizScreen').classList.remove('active');
+            document.getElementById('resultsScreen').classList.add('hidden');
+            document.getElementById('menuScreen').style.display = 'flex';
+            currentQuestion = 0;
+            userAnswers = {};
+        }
+        fetchLeaderboard();
+
+        function letterToIndex(l){ return ({a:0,b:1,c:2,d:3})[String(l||'a').toLowerCase()] ?? 0; }
+        function escapeHtml(s){ return (s||'').replace(/[&<>]/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;' }[c])); }
+    </script>
+</body>
+</html>
