@@ -209,8 +209,10 @@
         </div>
         
         <div id="menuScreen" class="menu">
-            <button class="btn btn-challenge" onclick="startChallenge()">🏆 Challenge Mode</button>
-            <button class="btn btn-review" onclick="startReview()">📚 Review Mode</button>
+            <button class="btn btn-challenge" onclick="startChallenge()">🏆 Challenge: Set 1</button>
+            <button class="btn btn-review" onclick="startReview()">📚 Review: Set 1</button>
+            <button class="btn btn-challenge" onclick="startChallenge('answer2.json')">🏆 Challenge: Set 2</button>
+            <button class="btn btn-review" onclick="startReview('answer2.json')">📚 Review: Set 2</button>
             
         </div>
         
@@ -337,10 +339,18 @@
             }
         }
         let questions = [];
+        let questionSource = 'answer.json';
+        const cachedQuestionsBySource = {};
 
-        async function loadQuestions() {
+        async function loadQuestions(src) {
             try {
-                const res = await fetch('answer.json', { cache: 'no-store' });
+                const source = src || questionSource || 'answer.json';
+                questionSource = source;
+                if (cachedQuestionsBySource[source]) {
+                    questions = cachedQuestionsBySource[source];
+                    return;
+                }
+                const res = await fetch(source, { cache: 'no-store' });
                 if (!res.ok) return;
                 const data = await res.json();
                 if (!Array.isArray(data) || !data.length) return;
@@ -350,6 +360,7 @@
                     opts: (item.options || []).slice(0,4).map(String),
                     ans: letterToIndex[String(item.answer||'').toLowerCase()] ?? 0
                 })).filter(x => x.q && Array.isArray(x.opts) && x.opts.length === 4);
+                cachedQuestionsBySource[source] = questions;
             } catch {}
         }
 
@@ -359,21 +370,23 @@
         let isLocked = false; // reflects lock state for the current question view
         const lockedQuestions = {}; // questionIndex -> true when answered (immutable)
 
-        async function startChallenge() {
+        async function startChallenge(src) {
             mode = 'challenge';
+            if (src) questionSource = src;
             currentQuestion = 0;
             userAnswers = {};
             document.getElementById('menuScreen').style.display = 'none';
             document.getElementById('quizScreen').classList.add('active');
-            if (!questions.length) { await loadQuestions(); }
+            await loadQuestions(questionSource);
             showQuestion();
         }
 
-        async function startReview() {
+        async function startReview(src) {
             mode = 'review';
+            if (src) questionSource = src;
             document.getElementById('menuScreen').style.display = 'none';
             document.getElementById('reviewScreen').classList.add('active');
-            if (!questions.length) { await loadQuestions(); }
+            await loadQuestions(questionSource);
             showReviewMode();
         }
 

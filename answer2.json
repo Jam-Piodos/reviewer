@@ -1,0 +1,302 @@
+[
+    {
+      "number": 1,
+      "question": "A new mother complains that her baby is not latching properly and her nipples are sore. What should be your first intervention?",
+      "options": ["a. Tell her to stop breastfeeding temporarily", "b. Assess the baby's position and latch technique", "c. Recommend bottle feeding instead", "d. Apply antibiotic cream to the nipples"],
+      "answer": "b"
+    },
+    {
+      "number": 2,
+      "question": "A mother of a 3-day-old newborn is worried because her breast milk has not 'come in' yet. What is the best response?",
+      "options": ["a. This is abnormal; she should supplement with formula", "b. She should pump frequently to stimulate milk production", "c. This is normal; colostrum is sufficient for the first few days", "d. She should drink more water immediately"],
+      "answer": "c"
+    },
+    {
+      "number": 3,
+      "question": "During a home visit, you notice a 2-month-old exclusively breastfed baby has gained only 300 grams in a month. What should you assess first?",
+      "options": ["a. The baby's feeding frequency and duration", "b. The mother's diet and fluid intake", "c. The baby's urine and stool output", "d. All of the above"],
+      "answer": "d"
+    },
+    {
+      "number": 4,
+      "question": "A mother tells you her 6-month-old baby refuses to eat the pureed vegetables she prepared. What is the most appropriate advice?",
+      "options": ["a. Force the baby to eat the vegetables", "b. Continue offering small amounts without forcing; it may take multiple exposures", "c. Stop trying vegetables and only give fruits", "d. Wait until the baby is 1 year old before trying again"],
+      "answer": "b"
+    },
+    {
+      "number": 5,
+      "question": "A breastfeeding mother reports her baby falls asleep at the breast after only a few minutes of feeding. What could be the problem?",
+      "options": ["a. The baby is getting enough milk quickly", "b. The baby may have a weak suck or ineffective latch", "c. The mother is producing too much milk", "d. The baby doesn't like the taste of breast milk"],
+      "answer": "b"
+    },
+    {
+      "number": 6,
+      "question": "A mother is engorged and in pain 3 days postpartum. The baby is having difficulty latching. What should you recommend?",
+      "options": ["a. Stop breastfeeding until engorgement resolves", "b. Apply warm compress and hand express some milk before feeding to soften the areola", "c. Apply ice packs only and wait for it to resolve", "d. Give the baby a bottle until she feels better"],
+      "answer": "b"
+    },
+    {
+      "number": 7,
+      "question": "A 4-month-old baby who was exclusively breastfed is now being introduced to formula. The baby develops loose stools. What is the likely cause?",
+      "options": ["a. Food allergy to the formula", "b. Normal adjustment to new food", "c. The baby has an infection", "d. The mother's breast milk was contaminated"],
+      "answer": "a"
+    },
+    {
+      "number": 8,
+      "question": "During a nutrition counseling session, a mother asks when she should start giving her baby water. What is the correct answer for an exclusively breastfed infant?",
+      "options": ["a. At 1 month old", "b. At 3 months old", "c. At 6 months old when complementary foods are introduced", "d. Water is not needed until 1 year old"],
+      "answer": "c"
+    },
+    {
+      "number": 9,
+      "question": "A mother reports her 8-month-old baby refuses to eat solid foods and only wants to breastfeed. What should you advise?",
+      "options": ["a. Stop breastfeeding to force the baby to eat solids", "b. Continue breastfeeding but offer solids before breastfeeding when baby is hungry", "c. Only give breast milk until the baby is ready", "d. Give the baby sugary foods to encourage interest in eating"],
+      "answer": "b"
+    },
+    {
+      "number": 10,
+      "question": "A working mother asks how she can maintain her milk supply while away from her baby. What is the best advice?",
+      "options": ["a. Express milk every 3-4 hours during work hours", "b. Only breastfeed when she gets home", "c. Reduce breastfeeding frequency gradually", "d. Start supplementing with formula immediately"],
+      "answer": "a"
+    },
+    {
+      "number": 11,
+      "question": "A 5-month-old baby has been exclusively breastfed and the mother wants to introduce solid foods. What should you tell her?",
+      "options": ["a. Start immediately with any food", "b. Wait until 6 months for optimal nutrition", "c. Give rice cereal mixed with formula", "d. Start with cow's milk"],
+      "answer": "b"
+    },
+    {
+      "number": 12,
+      "question": "During a feeding observation, you notice the baby makes clicking sounds while breastfeeding. What does this indicate?",
+      "options": ["a. Normal feeding sounds", "b. Poor latch or tongue-tie", "c. The baby is full", "d. The mother has too much milk"],
+      "answer": "b"
+    },
+    {
+      "number": 13,
+      "question": "A mother of a 7-month-old asks what foods are good first foods for her baby. What should you recommend?",
+      "options": ["a. Honey and egg whites", "b. Iron-fortified cereals, mashed vegetables, and fruits", "c. Cow's milk and cookies", "d. Spicy foods and seafood"],
+      "answer": "b"
+    },
+    {
+      "number": 14,
+      "question": "A mother complains of a painful, red, hard area on one breast with fever. What is the most likely diagnosis?",
+      "options": ["a. Normal engorgement", "b. Blocked milk duct", "c. Mastitis", "d. Breast cancer"],
+      "answer": "c"
+    },
+    {
+      "number": 15,
+      "question": "A mother reports her baby has green, frothy stools and seems fussy during feedings. What might be happening?",
+      "options": ["a. The baby has an infection", "b. Foremilk-hindmilk imbalance", "c. Normal breastfed baby stools", "d. The baby is lactose intolerant"],
+      "answer": "b"
+    },
+    {
+      "number": 16,
+      "question": "A 9-month-old baby is eating family foods but the mother is concerned about choking. What texture should you recommend?",
+      "options": ["a. Whole grapes and nuts", "b. Soft, mashed, or finely chopped foods", "c. Only pureed foods", "d. Hard, crunchy foods to promote chewing"],
+      "answer": "b"
+    },
+    {
+      "number": 17,
+      "question": "A mother asks if she can breastfeed while pregnant with her second child. What should you tell her?",
+      "options": ["a. She must stop immediately as it's dangerous", "b. Yes, she can continue if the pregnancy is uncomplicated", "c. Only during the first trimester", "d. Only if she's not having any contractions"],
+      "answer": "b"
+    },
+    {
+      "number": 18,
+      "question": "During a growth monitoring session, you notice a 10-month-old has dropped from the 50th to the 10th percentile. What should be your priority?",
+      "options": ["a. Reassure the mother that some babies are small", "b. Assess feeding practices and dietary intake", "c. Immediately refer for hospitalization", "d. Switch to formula feeding"],
+      "answer": "b"
+    },
+    {
+      "number": 19,
+      "question": "A mother of a 6-month-old asks about introducing eggs. What is the current recommendation?",
+      "options": ["a. Wait until 12 months to prevent allergies", "b. Can introduce cooked eggs at 6 months", "c. Never give eggs to infants", "d. Only give egg yolks, never whites"],
+      "answer": "b"
+    },
+    {
+      "number": 20,
+      "question": "A breastfeeding mother has been prescribed medication. What should you do?",
+      "options": ["a. Tell her to stop breastfeeding immediately", "b. Check if the medication is compatible with breastfeeding", "c. Tell her to pump and dump", "d. Switch the baby to formula"],
+      "answer": "b"
+    },
+    {
+      "number": 21,
+      "question": "A 1-year-old child is still breastfeeding 8-10 times a day and eating very little solid food. What should you recommend?",
+      "options": ["a. Continue as the child wants", "b. Offer solid foods before breastfeeding and gradually reduce nursing frequency", "c. Stop breastfeeding completely", "d. Only breastfeed at night"],
+      "answer": "b"
+    },
+    {
+      "number": 22,
+      "question": "A mother reports her 2-week-old baby is feeding every hour and she's exhausted. What should you assess?",
+      "options": ["a. Whether the baby is effectively transferring milk", "b. The mother's milk supply", "c. The baby's weight gain pattern", "d. All of the above"],
+      "answer": "d"
+    },
+    {
+      "number": 23,
+      "question": "During a home visit, you observe a mother giving a 4-month-old baby juice in a bottle. What is the most appropriate response?",
+      "options": ["a. Congratulate her for giving vitamins", "b. Explain that juice is not recommended before 12 months and can displace breast milk", "c. Tell her to dilute the juice more", "d. Recommend giving more juice for hydration"],
+      "answer": "b"
+    },
+    {
+      "number": 24,
+      "question": "A mother tells you her 7-month-old baby gags when given lumpy foods. What should you advise?",
+      "options": ["a. This is normal; continue offering appropriately textured foods gradually", "b. Go back to only smooth purees", "c. The baby has a swallowing disorder", "d. Stop giving solids completely"],
+      "answer": "a"
+    },
+    {
+      "number": 25,
+      "question": "A mother of twins asks how she can successfully breastfeed both babies. What is the best advice?",
+      "options": ["a. It's impossible; she should use formula", "b. Feed one at a time only", "c. She can feed both simultaneously or separately; support and proper positioning are key", "d. Only breastfeed one baby and give formula to the other"],
+      "answer": "c"
+    },
+    {
+      "number": 26,
+      "question": "A 5-month-old exclusively breastfed baby has had fewer wet diapers for 2 days. The mother says the baby seems less interested in feeding. What should you do?",
+      "options": ["a. Tell her to wait and see", "b. Assess for signs of dehydration and poor milk transfer", "c. Start giving water immediately", "d. Switch to formula"],
+      "answer": "b"
+    },
+    {
+      "number": 27,
+      "question": "A mother asks when she should start using a cup instead of a bottle for her 8-month-old. What do you recommend?",
+      "options": ["a. Wait until 2 years old", "b. Start introducing a cup now to develop skills", "c. Never use a cup, only bottles", "d. Wait until the child asks for it"],
+      "answer": "b"
+    },
+    {
+      "number": 28,
+      "question": "During a nutrition class, a mother asks about introducing peanut products to her 6-month-old with no family history of allergies. What is the current recommendation?",
+      "options": ["a. Wait until 3 years old", "b. Can introduce smooth peanut butter in small amounts at 6 months", "c. Never give peanuts to children", "d. Only after allergy testing"],
+      "answer": "b"
+    },
+    {
+      "number": 29,
+      "question": "A mother reports that her 3-month-old baby spits up after most feedings but is gaining weight appropriately. What should you tell her?",
+      "options": ["a. This is a serious problem requiring immediate intervention", "b. This is likely normal reflux; monitor for adequate growth and hydration", "c. Stop breastfeeding immediately", "d. The baby needs medication"],
+      "answer": "b"
+    },
+    {
+      "number": 30,
+      "question": "A 10-month-old baby is not interested in self-feeding. The mother does everything for the child. What should you recommend?",
+      "options": ["a. Continue feeding the child to ensure adequate intake", "b. Encourage offering finger foods and allowing messy self-feeding to develop skills", "c. Wait until 2 years old before allowing self-feeding", "d. Force the child to self-feed"],
+      "answer": "b"
+    },
+    {
+      "number": 31,
+      "question": "A breastfeeding mother has flat or inverted nipples and is having difficulty with latch. What intervention can help?",
+      "options": ["a. Tell her breastfeeding is impossible for her", "b. Use breast shells, nipple pulling exercises, or a nipple shield temporarily", "c. Switch to bottle feeding only", "d. Wait until the nipples fix themselves"],
+      "answer": "b"
+    },
+    {
+      "number": 32,
+      "question": "A mother asks what signs indicate her baby is ready for solid foods. What are the appropriate readiness signs?",
+      "options": ["a. The baby is 4 months old", "b. Can sit with support, shows interest in food, and has lost the tongue-thrust reflex", "c. The baby cries more", "d. The mother is tired of breastfeeding"],
+      "answer": "b"
+    },
+    {
+      "number": 33,
+      "question": "During a feeding assessment, a mother reports giving her 11-month-old honey for a cough. What is your response?",
+      "options": ["a. Good idea, honey is natural", "b. Honey should not be given to children under 12 months due to botulism risk", "c. Give more honey", "d. Honey is safe at any age"],
+      "answer": "b"
+    },
+    {
+      "number": 34,
+      "question": "A mother of a 6-month-old wants to know how much solid food to give. What is appropriate?",
+      "options": ["a. As much as possible to replace breast milk", "b. Start with 1-2 tablespoons once or twice daily, gradually increasing", "c. Give adult portions", "d. Only 1 teaspoon per day"],
+      "answer": "b"
+    },
+    {
+      "number": 35,
+      "question": "A mother reports her 4-month-old baby seems hungry all the time despite frequent breastfeeding. She asks if she should start solids. What do you advise?",
+      "options": ["a. Yes, start solids immediately", "b. Wait until 6 months; increased feeding may be a growth spurt", "c. Switch to formula", "d. Give water between feedings"],
+      "answer": "b"
+    },
+    {
+      "number": 36,
+      "question": "During a consultation, you observe a baby with poor weight gain. The mother says she follows a strict vegan diet. What should you assess?",
+      "options": ["a. Nothing, vegan diet is always adequate", "b. The mother's B12, iron, and calcium intake and consider supplementation", "c. Tell her to stop being vegan immediately", "d. The baby needs formula"],
+      "answer": "b"
+    },
+    {
+      "number": 37,
+      "question": "A mother asks if she can continue breastfeeding while her baby has diarrhea. What is the correct advice?",
+      "options": ["a. Stop breastfeeding until diarrhea resolves", "b. Continue breastfeeding; it provides fluids, nutrients, and antibodies", "c. Only give water", "d. Switch to formula"],
+      "answer": "b"
+    },
+    {
+      "number": 38,
+      "question": "A 9-month-old is refusing vegetables but loves fruits. The mother asks if she should stop offering vegetables. What do you recommend?",
+      "options": ["a. Yes, only give fruits if that's what the baby likes", "b. Continue offering vegetables; it may take 10-15 exposures before acceptance", "c. Never offer vegetables again", "d. Force the baby to eat vegetables"],
+      "answer": "b"
+    },
+    {
+      "number": 39,
+      "question": "A mother is concerned because her 2-month-old breastfed baby has yellow, seedy stools after every feeding. What should you tell her?",
+      "options": ["a. This indicates diarrhea and needs treatment", "b. This is normal for a breastfed baby", "c. The baby is allergic to breast milk", "d. Switch to formula immediately"],
+      "answer": "b"
+    },
+    {
+      "number": 40,
+      "question": "During a home visit, you notice a 7-month-old baby is being given cow's milk instead of breast milk or formula. What is your priority action?",
+      "options": ["a. Tell the mother cow's milk is fine", "b. Educate about the risks of cow's milk before 12 months and recommend appropriate alternatives", "c. Report the mother to authorities", "d. Do nothing"],
+      "answer": "b"
+    },
+    {
+      "number": 41,
+      "question": "A mother asks how to know if her baby is getting enough breast milk. What signs indicate adequate intake?",
+      "options": ["a. Only baby's satisfaction after feeding", "b. 6-8 wet diapers daily, regular stools, appropriate weight gain, and contentment", "c. The mother feels empty breasts", "d. The baby sleeps through the night"],
+      "answer": "b"
+    },
+    {
+      "number": 42,
+      "question": "A 1-year-old child drinks 32 oz of whole milk daily and eats very little solid food. What is your concern?",
+      "options": ["a. This is perfect", "b. Excessive milk intake can cause iron deficiency and displace nutritious foods", "c. The child needs more milk", "d. No concern needed"],
+      "answer": "b"
+    },
+    {
+      "number": 43,
+      "question": "A mother tells you she's giving her 5-month-old rice cereal in the bottle to help the baby sleep longer. What should you tell her?",
+      "options": ["a. Great idea to help with sleep", "b. This is not recommended; it can lead to overfeeding and choking risk", "c. Add more cereal to the bottle", "d. This is the best way to feed cereal"],
+      "answer": "b"
+    },
+    {
+      "number": 44,
+      "question": "During a breastfeeding assessment, you notice the baby's lips are not flanged outward. What does this indicate?",
+      "options": ["a. Perfect latch", "b. Poor latch that may cause nipple damage and ineffective milk transfer", "c. Normal variation", "d. The baby is full"],
+      "answer": "b"
+    },
+    {
+      "number": 45,
+      "question": "A mother of an 8-month-old asks about giving fish. What is the appropriate recommendation?",
+      "options": ["a. Never give fish to babies", "b. Can give thoroughly cooked, deboned fish; avoid high-mercury varieties", "c. Only give fish after 5 years old", "d. Give raw fish for omega-3s"],
+      "answer": "b"
+    },
+    {
+      "number": 46,
+      "question": "A mother reports her baby has been breastfeeding for 45 minutes every 2 hours but still seems hungry. What should you evaluate?",
+      "options": ["a. The quality of the latch and milk transfer", "b. Whether the baby is actually swallowing or just comfort nursing", "c. The mother's milk supply", "d. All of the above"],
+      "answer": "d"
+    },
+    {
+      "number": 47,
+      "question": "A 6-month-old exclusively breastfed baby is diagnosed with iron deficiency anemia. What should you recommend?",
+      "options": ["a. Stop breastfeeding", "b. Introduce iron-rich complementary foods and consider iron supplementation", "c. Only give formula", "d. Do nothing"],
+      "answer": "b"
+    },
+    {
+      "number": 48,
+      "question": "A mother asks when she can introduce salt and sugar to her baby's food. What is the recommendation?",
+      "options": ["a. At 6 months when starting solids", "b. Avoid adding salt and sugar; let baby taste natural flavors", "c. Add as much as in adult food", "d. Salt is fine but not sugar"],
+      "answer": "b"
+    },
+    {
+      "number": 49,
+      "question": "During a consultation, a mother says her 10-month-old only wants to eat one type of food. What should you advise?",
+      "options": ["a. This is fine; give only what the child wants", "b. Continue offering variety; food jags are common but keep exposing to different foods", "c. Force the child to eat other foods", "d. See a specialist immediately"],
+      "answer": "b"
+    },
+    {
+      "number": 50,
+      "question": "A breastfeeding mother is planning to return to work in 2 weeks. When should she start introducing bottles?",
+      "options": ["a. Right now to get the baby used to it", "b. About 1 week before returning to work, after breastfeeding is well established", "c. On her first day back to work", "d. Never introduce bottles"],
+      "answer": "b"
+    }
+  ]
